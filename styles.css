@@ -2,7 +2,7 @@ body{
     width: 100%;
     flex-wrap: wrap;
     flex-direction: column;
-    background: rgb(183, 37, 168);
+    background: #d63cc7;
     padding: 0;
     position: absolute;
     font-family: "Roboto Slab", serif;
@@ -48,7 +48,7 @@ p{
     justify-content: center;
 }
 
-button{
+.startGame{
     border-radius: 40px;
     width: 800px;
     height: 60px;
@@ -63,7 +63,136 @@ h3{
     font-size: 28px;
     font-family: "Roboto Slab", serif;
 }
-button:hover{
+.startGame:hover{
     transform: scale(1.05);
     border-radius: 56px;
 }
+/* ------------------------------------------------------------------------------------------------ */
+/*                                       2 страница */
+
+.game{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    padding: 0px;
+}
+.game img{
+    border-radius: 36px;
+}
+
+
+
+.toMenu{
+    margin: 0;
+}
+.toMenu button{
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: black;
+    color: #ffe900;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.toMenu button:hover{
+    transform: scale(1.05);
+}
+.arrow{
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #ffe900;
+    margin-right: 10px;
+}
+
+
+.gameChoose{
+    text-align: center;
+}
+.player, .bot {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    background: #884581;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.player{
+    margin-top: 32px
+}
+.bot{
+    margin-bottom: 32px;
+}
+h2{
+    margin: 0px;
+    font-weight: 800;
+    font-size: 32px;
+    letter-spacing: 0.2em;
+}
+.makeAChoose{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+.makeAChoose button{
+    background-color:#ffe900;
+    border-radius: 40px;
+    width: 600px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.makeAChoose button:hover{
+    transform: scale(1.05);
+}
+
+.imagesOfBot img{
+    width: 140px;
+    height: 140px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 2px solid black;
+}
+.imagesOfBot img:hover{
+    transform: scale(1.01);
+}
+.imagesOfPlayer img{
+    width: 160px;
+    height: 160px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 2px solid black;
+}
+.imagesOfPlayer img:hover{
+    transform: scale(1.05);
+    box-shadow: 4px 0 4px 4px rgba(0, 0, 0, 0.501);
+}
+
+
+.winsAndLoses{
+    display: flex;
+}
+.wins button{
+    margin-right: 8px;
+    background-color: #000000;
+    color: #ffe900;
+    border-radius: 12px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+.loses button {
+    background-color: #000000;
+    color: #ffe900;
+    border-radius: 12px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
