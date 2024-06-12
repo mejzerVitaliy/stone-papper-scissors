@@ -164,7 +164,7 @@ h2{
 .imagesOfBot img:hover{
     transform: scale(1.01);
 }
-.imagesOfPlayer img{
+.rock, .scissors, .papper{
     width: 160px;
     height: 160px;
     margin-left: 10px;
@@ -173,8 +173,14 @@ h2{
 }
 .imagesOfPlayer img:hover{
     transform: scale(1.05);
-    box-shadow: 4px 0 4px 4px rgba(0, 0, 0, 0.501);
+    box-shadow: 4px 0 4px 4px rgba(0, 0, 0, 0.256);
 }
+.pressedVariant {
+    transform: scale(1.05);
+    box-shadow: 4px 0 4px 4px rgba(0, 0, 0, 0.256);
+    border: 6px solid #000000;
+}
+
 
 
 .winsAndLoses{
