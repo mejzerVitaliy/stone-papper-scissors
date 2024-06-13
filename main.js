@@ -33,27 +33,56 @@ pressedVariant.addEventListener('click', (t) => {
 // --------------------------------------КНОПКА ИГРАТь----------------------------------------------
 
 
-let playerChoice = null
-
-const makeAChoice = document.getElementById('choice')
-makeAChoice.addEventListener('click', () => {
-    playerChoice = lastTarget
-    console.log(playerChoice)
-})
-
-// ---------------------------------------ВЫБОР БОТА------------------------------------------------
-
-
 const botsRock = document.querySelector('.rockBots')
 const botsScissors = document.querySelector('.scissorsBots')
 const botsPapper = document.querySelector('.papperBots')
 
 const arrOfVarriantsBot = [botsRock, botsScissors, botsPapper]
-console.log(arrOfVarriantsBot)
-let i = null
-let indexOfBotChoice = Math.floor(Math.random() * 2.9);
-console.log(indexOfBotChoice)
 
-const botChoice = arrOfVarriantsBot[indexOfBotChoice]
-console.log(botChoice)
+let playerChoice = null
+let botChoice = null
+
+const makeAChoice = document.getElementById('choice')
+makeAChoice.addEventListener('click', () => {
+    
+    playerChoice = lastTarget
+    
+    randomIndexOfBotChoice()
+    botChoice = arrOfVarriantsBot[indexOfBotChoice]
+    arrOfVarriantsBot.forEach((item) => {
+        item.classList.remove('pressedVariantBot');
+    })
+    botChoice.classList.add('pressedVariantBot')
+    
+    if (playerChoice.classList[0] == 'rock' && botChoice.classList[0] == 'papperBots') {
+        console.log('YOU LOSE')
+    } else if (playerChoice.classList[0] == 'scissors' && botChoice.classList[0] == 'rockBots') {
+        console.log('YOU LOSE')
+    } else if (playerChoice.classList[0] == 'papper' && botChoice.classList[0] == 'scissorsBots') {
+        console.log('YOU LOSE')
+    } else if (playerChoice.classList[0] == 'rock' && botChoice.classList[0] == 'scissorsBots') {
+        console.log('YOU WIN')
+    } else if (playerChoice.classList[0] == 'scissors' && botChoice.classList[0] == 'papperBots') {
+        console.log('YOU WIN')
+    } else if (playerChoice.classList[0] == 'papper' && botChoice.classList[0] == 'rockBots') {
+        console.log('YOU WIN')
+    } else if (playerChoice.classList[0] == 'rock' && botChoice.classList[0] == 'rockBots') {
+        console.log('DRAW')
+    } else if (playerChoice.classList[0] == 'scissors' && botChoice.classList[0] == 'scissorsBots') {
+        console.log('DRAW')
+    } else if (playerChoice.classList[0] == 'papper' && botChoice.classList[0] == 'papperBots') {
+        console.log('DRAW')
+    } 
+ 
+})
+
+// ---------------------------------------ВЫБОР БОТА------------------------------------------------
+
+
+let indexOfBotChoice = null
+
+function randomIndexOfBotChoice() {
+    indexOfBotChoice = Math.floor(Math.random() * 2.9)
+    return indexOfBotChoice
+}
 
