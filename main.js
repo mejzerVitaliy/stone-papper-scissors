@@ -42,6 +42,28 @@ const arrOfVarriantsBot = [botsRock, botsScissors, botsPapper]
 let playerChoice = null
 let botChoice = null
 
+let player = null
+let computer = null
+
+
+let result = null
+
+
+function determineWinner(player, computer) {
+    if (player === computer) {
+        result = 'Ничья!';
+    } else if (
+        (player === 'Камень' && computer === 'Ножницы') ||
+        (player === 'Ножницы' && computer === 'Бумага')  ||
+        (player === 'Бумага' && computer === 'Камень')
+    ) {
+        result = 'Вы выиграли!';
+    } else {
+        result = 'Компьютер выиграл!' ;
+    }
+}
+
+
 const makeAChoice = document.getElementById('choice')
 makeAChoice.addEventListener('click', () => {
     
@@ -54,27 +76,12 @@ makeAChoice.addEventListener('click', () => {
     })
     botChoice.classList.add('pressedVariantBot')
     
-    if (playerChoice.classList[0] == 'rock' && botChoice.classList[0] == 'papperBots') {
-        console.log('YOU LOSE')
-    } else if (playerChoice.classList[0] == 'scissors' && botChoice.classList[0] == 'rockBots') {
-        console.log('YOU LOSE')
-    } else if (playerChoice.classList[0] == 'papper' && botChoice.classList[0] == 'scissorsBots') {
-        console.log('YOU LOSE')
-    } else if (playerChoice.classList[0] == 'rock' && botChoice.classList[0] == 'scissorsBots') {
-        console.log('YOU WIN')
-    } else if (playerChoice.classList[0] == 'scissors' && botChoice.classList[0] == 'papperBots') {
-        console.log('YOU WIN')
-    } else if (playerChoice.classList[0] == 'papper' && botChoice.classList[0] == 'rockBots') {
-        console.log('YOU WIN')
-    } else if (playerChoice.classList[0] == 'rock' && botChoice.classList[0] == 'rockBots') {
-        console.log('DRAW')
-    } else if (playerChoice.classList[0] == 'scissors' && botChoice.classList[0] == 'scissorsBots') {
-        console.log('DRAW')
-    } else if (playerChoice.classList[0] == 'papper' && botChoice.classList[0] == 'papperBots') {
-        console.log('DRAW')
-    } 
- 
-})
+    player = playerChoice.classList[2]
+    computer = botChoice.classList[2]
+
+    // Функция для определения победителя
+    determineWinner(player, computer)
+ })
 
 // ---------------------------------------ВЫБОР БОТА------------------------------------------------
 
@@ -86,3 +93,31 @@ function randomIndexOfBotChoice() {
     return indexOfBotChoice
 }
 
+// --------------------------------Модальное окно----------------------------------------------------
+
+
+const modal = document.getElementById('myModal');
+const modalText = document.getElementById('modalText')
+
+// крестик
+const span = document.getElementsByClassName('close')[0];
+
+// When the user clicks the button, open the modal 
+makeAChoice.onclick = function() {
+    modal.style.display = 'flex';
+    modal.style.justifyContent = 'center'
+    modal.style.alignItems = 'center'
+    modalText.innerText = result;
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = 'none';
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+}
