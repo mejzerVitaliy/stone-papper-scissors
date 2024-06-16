@@ -4,9 +4,8 @@
 
 const start = document.querySelector('button')
 start.addEventListener('click', () => {
-    window.location.href = 'game.html'
+    window.location.href = 'game.html';
 })
-
 
 const toMenu = document.getElementById('toMenu')
 toMenu.addEventListener('click', () => {
@@ -27,7 +26,7 @@ pressedVariant.addEventListener('click', (t) => {
     if (t.target.className != 'imagesOfPlayer') {
         t.target.classList.add('pressedVariant');
         lastTarget = t.target
-    }    
+    } else lastTarget = null   
 })
 
 // --------------------------------------КНОПКА ИГРАТь----------------------------------------------
@@ -47,25 +46,45 @@ let computer = null
 
 
 let result = null
+const counterOfWins = document.getElementById('wins')
+const counterOfLoses = document.getElementById('loses')
+let wins = 0
+let loses = 0
 
 
 function determineWinner(player, computer) {
-    if (player === computer) {
-        result = 'Ничья!';
-    } else if (
-        (player === 'Камень' && computer === 'Ножницы') ||
-        (player === 'Ножницы' && computer === 'Бумага')  ||
-        (player === 'Бумага' && computer === 'Камень')
-    ) {
-        result = 'Вы выиграли!';
-    } else {
-        result = 'Компьютер выиграл!' ;
+    if (player != null) {
+        if (player === computer) {
+        result = 'Нічия!';
+        } else if (
+            (player === 'Камень' && computer === 'Ножницы') ||
+            (player === 'Ножницы' && computer === 'Бумага')  ||
+            (player === 'Бумага' && computer === 'Камень')
+        ) {
+            result = 'Ви перемогли!';
+        } else {
+            result = 'Бот переміг!';
+        }
+    } else result = 'Оберіть варіант!'
+}
+
+counterOfLoses.innerText = loses
+counterOfWins.innerText = wins
+
+function countOfWins(result) {
+    if (result == 'Ви перемогли!') {
+        counterOfWins.innerText++
+    } else if (result == 'Бот переміг!') {
+        counterOfLoses.innerText++
     }
 }
 
 
 const makeAChoice = document.getElementById('choice')
+
+
 makeAChoice.addEventListener('click', () => {
+    
     
     playerChoice = lastTarget
     
@@ -75,12 +94,25 @@ makeAChoice.addEventListener('click', () => {
         item.classList.remove('pressedVariantBot');
     })
     botChoice.classList.add('pressedVariantBot')
+    if (playerChoice != null) {
+        player = playerChoice.classList[2]
+        computer = botChoice.classList[2]
+    } else {
+        player = null
+        computer = botChoice.classList[2]
+    }
     
-    player = playerChoice.classList[2]
-    computer = botChoice.classList[2]
 
     // Функция для определения победителя
+
     determineWinner(player, computer)
+    countOfWins(result)
+
+    // modal window
+    modal.style.display = 'flex';
+    modal.style.justifyContent = 'center';
+    modal.style.alignItems = 'center';
+    modalText.innerText = result;
  })
 
 // ---------------------------------------ВЫБОР БОТА------------------------------------------------
@@ -102,15 +134,7 @@ const modalText = document.getElementById('modalText')
 // крестик
 const span = document.getElementsByClassName('close')[0];
 
-// When the user clicks the button, open the modal 
-makeAChoice.onclick = function() {
-    modal.style.display = 'flex';
-    modal.style.justifyContent = 'center'
-    modal.style.alignItems = 'center'
-    modalText.innerText = result;
-}
-
-// When the user clicks on <span> (x), close the modal
+// When the user clicks on (x), close the modal
 span.onclick = function() {
     modal.style.display = 'none';
 }
