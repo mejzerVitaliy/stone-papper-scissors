@@ -9,7 +9,7 @@ start.addEventListener('click', () => {
 
 const toMenu = document.getElementById('toMenu')
 toMenu.addEventListener('click', () => {
-    window.location.href = 'menu.html'
+    window.location.href = 'index.html'
 })
 
 // ---------------------------------------ВЫБОР ИГРОКА----------------------------------------------
