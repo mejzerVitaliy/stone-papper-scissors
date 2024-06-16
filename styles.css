@@ -7,10 +7,19 @@ body{
     position: absolute;
     font-family: "Roboto Slab", serif;
 }
+.bodyOfMenu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
 .menu{
     text-align: center;
-    margin: 124px 200px 28px 200px;
+    margin-top: 5%;
+    margin-bottom: 3%;
     padding: 0;
+    width: 70%;
+    
 }
 
 .name{
@@ -24,11 +33,9 @@ body{
 
 .rules{
     margin-top: 0px;
-    margin-left: 120px;
-    margin-right: 120px;
+    margin-left: 20%;
+    margin-right: 20%;
     margin-bottom: 0px;
-
-
 }
 
 h2{
@@ -37,7 +44,7 @@ h2{
 }
 
 p{
-    font-size: 20px;
+    font-size: 24px;
     color: #ffe900;
 }
 

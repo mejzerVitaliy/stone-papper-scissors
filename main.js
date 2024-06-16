@@ -85,7 +85,6 @@ const makeAChoice = document.getElementById('choice')
 
 makeAChoice.addEventListener('click', () => {
     
-    
     playerChoice = lastTarget
     
     randomIndexOfBotChoice()
@@ -93,17 +92,15 @@ makeAChoice.addEventListener('click', () => {
     arrOfVarriantsBot.forEach((item) => {
         item.classList.remove('pressedVariantBot');
     })
-    botChoice.classList.add('pressedVariantBot')
+    
     if (playerChoice != null) {
         player = playerChoice.classList[2]
         computer = botChoice.classList[2]
+        botChoice.classList.add('pressedVariantBot')
     } else {
         player = null
         computer = botChoice.classList[2]
     }
-    
-
-    // Функция для определения победителя
 
     determineWinner(player, computer)
     countOfWins(result)
