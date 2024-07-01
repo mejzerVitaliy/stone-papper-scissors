@@ -1,11 +1,14 @@
-body{
+html, body{
     width: 100%;
     flex-wrap: wrap;
     flex-direction: column;
     background: #d63cc7;
+    margin: 0;
     padding: 0;
     position: absolute;
     font-family: "Roboto Slab", serif;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 .bodyOfMenu{
     display: flex;
@@ -64,6 +67,7 @@ p{
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: 0.2s;
 }
 h3{
     font-weight: 700;
@@ -101,6 +105,7 @@ h3{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    transition: 0.2s;
 }
 .toMenu button:hover{
     transform: scale(1.05);
@@ -119,6 +124,7 @@ h3{
 
 .gameChoose{
     text-align: center;
+    width: 50%;
 }
 .player, .bot {
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -127,6 +133,7 @@ h3{
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 .player{
     margin-top: 32px
@@ -155,6 +162,7 @@ h2{
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: 0.2s;
 
 }
 .makeAChoose button:hover{
@@ -167,6 +175,7 @@ h2{
     margin-left: 10px;
     margin-right: 10px;
     border: 2px solid black;
+    transition: 0.2s;
 }
 .imagesOfBot img:hover{
     transform: scale(1.01);
@@ -178,6 +187,11 @@ h2{
     margin-right: 10px;
     border: 2px solid black;
 }
+
+.imagesOfPlayer img{
+    transition: 0.2s;
+}
+
 .imagesOfPlayer img:hover{
     transform: scale(1.05);
     box-shadow: 4px 0 4px 4px rgba(0, 0, 0, 0.256);
@@ -247,9 +261,216 @@ h2{
     font-size: 40px;
     font-weight: bold;
     margin: 0%;
+    transition: 0.2s;
 }
 .close:hover, .close:focus {
     color: rgb(255, 0, 0);
     text-decoration: none;
     cursor: pointer;
+}
+
+@media (max-width: 1162px) {
+    .toMenu button{
+        width: 130px;
+        height: 30px;
+    }
+    h4{
+        font-size: 12px;
+    }
+
+    h2{
+        font-size: 26px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+    .imagesOfBot img{
+        width: 100px;
+        height: 100px;
+    }
+    .imagesOfPlayer img{
+        width: 116px;
+        height: 116px;
+    }
+    .wins button{
+        width: 100px;
+        margin: 0 4px 0 4px;
+    }
+    .loses button{
+        width: 100px;
+        margin: 0 4px 0 4px;
+    }
+    .gameChoose button{
+        height: 60px;
+        width: 540px;
+    }
+}
+
+@media (max-width: 770px) {
+    .toMenu button{
+        width: 100px;
+        height: 30px;
+    }
+    h4{
+        font-size: 10px;
+    }
+
+    h2{
+        font-size: 22px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+    .imagesOfBot img{
+        width: 80px;
+        height: 80px;
+        border-radius: 24px;
+    }
+    .imagesOfPlayer img{
+        width: 90px;
+        height: 90px;
+    }
+    .wins button{
+        width: 70px;
+        margin: 0 4px 0 4px;
+    }
+    .loses button{
+        width: 70px;
+        margin: 0 4px 0 4px;
+    }
+    .gameChoose{
+        margin-top: 32px;
+    }
+    .gameChoose button{
+        height: 60px;
+        width: 540px;
+    }
+}
+
+@media (max-width: 750px) {
+    .name{
+        font-size: 26px;
+    }
+    .rules h2{
+        font-size: 26px;
+    }
+    .rules p{
+        font-size: 14px;
+    }
+    .startGame{
+        width: 500px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 450px) {
+    .name{
+        font-size: 20px;
+    }
+    .rules h2{
+        font-size: 18px;
+    }
+    .rules p{
+        font-size: 14px;
+    }
+    .startGame{
+        width: 500px;
+        height: 40px;
+    }
+
+    .toMenu button{
+        width: 40px;
+        height: 40px;
+    }
+    .toMenu h4{
+        display: none;
+    }
+    h4{
+        font-size: 6px;
+    }
+
+    h2{
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+    .imagesOfBot img{
+        width: 40px;
+        height: 40px;
+        border-radius: 14px;
+        margin: 0 4px;
+    }
+    .imagesOfPlayer img{
+        width: 45px;
+        height: 45px;
+        border-radius: 18px;
+        margin: 0 4px;
+    }
+    .wins button{
+        width: 50px;
+        margin: 0 2px 0 2px;
+    }
+    .loses button{
+        width: 50px;
+        margin: 0 2px 0 2px;
+    }
+    .gameChoose{
+        margin-top: 100px;
+        margin-left: 60px;
+    }
+    .gameChoose button{
+        height: 40px;
+        width: 500px;
+    }
+
+    .modalText{
+        font-size: 30px;
+        margin-top: 45px;
+    }
+}
+
+@media (max-width:376px) {
+    .game {
+       margin: 4px; 
+    }
+    .gameChoose{
+        margin-top: 100px;
+        margin-left: 50px;
+    }
+
+}
+
+@media (max-width:321px) {
+    
+    .gameChoose{
+        margin-top: 100px;
+        margin-left: 30px;
+    }
+    h1 {
+        font-size: 16px;
+    }
+    .imagesOfBot img{
+        width: 36px;
+        height: 36px;
+        border-radius: 14px;
+        margin: 0 4px;
+    }
+    .imagesOfPlayer img{
+        width: 36px;
+        height: 36px;
+        border-radius: 16px;
+        margin: 0 4px;
+    }
+
+    .makeAChoose{
+        margin: 30px 0;
+    }
+
+    .modalText{
+        font-size: 24px;
+    }
 }
